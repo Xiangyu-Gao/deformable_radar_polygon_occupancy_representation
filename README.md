@@ -15,7 +15,7 @@ A Lightweight and Predictable Occupancy Representation for Short-range Collision
         year={2022}}
 
 ## Update
-***(Nov. 25, 2022) The input data for slice3d.py script has been changed to the raw ADC data now [slice_sample_data](https://drive.google.com/drive/folders/1TGW6BHi5EZsSCtTsJuwYIQVaIWjl8CLY?usp=sharing).***
+***(Nov. 27, 2022) Code and sample data release.***
 
 ## Contact
 Any questions or suggestions are welcome! 
@@ -33,16 +33,19 @@ All radar configurations and algorithm configurations are included in [config](c
 
 Python 3.6, and libraries in [requirements.txt](requirements.txt).
 
-### Download Sample Data and Model
+### Download Sample Data
 1. From below Google Drive link download the sample data 'scene.pickle'. 
     ```
     https://drive.google.com/file/d/12NV46iAPfws4SVUuxyfHbsqE_BibqAyK/view?usp=sharing
     ```
-    Note that the sample data is from the scene 143 of [RadarScenes](https://radar-scenes.com/) Dataset. You can try other data by downloading the RadarScenes, and read and save it with the [script](read_radarscene_data.py).
+    Note that the sample data is from the scene 143 of [RadarScenes](https://radar-scenes.com/) Dataset. You can try other data by downloading the RadarScenes, and read and save other scenes of data with the [script](read_radarscene_data.py).
 
 2. Relocate the pickle data under the project directory.
+    ```
+    ./deformable_radar_polygon_occupancy_representation/scene.pickle
+    ```
 
-## Run Single-slot Radar Polygon Formation Algorithm
+## Run Single-shot Radar Polygon Formation Algorithm
     
     python polygon_radarscene_singleFrame.py
     
