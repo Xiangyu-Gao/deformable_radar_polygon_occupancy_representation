@@ -45,21 +45,21 @@ Python 3.6, and libraries in [requirements.txt](requirements.txt).
     ./deformable_radar_polygon_occupancy_representation/scene.pickle
     ```
 
-## Run Single-shot Radar Polygon Formation Algorithm
+### Run Single-shot Radar Polygon Formation Algorithm
     
     python polygon_radarscene_singleFrame.py
     
 
-## Run ISM-based Radar Polygon Update Algorithm
+### Run ISM-based Radar Polygon Update Algorithm
    
     python polygon_radarscene_inverseSensor.py
     
 
-## Run the Reference Occupancy Grid Algorithm   
+### Run the Reference Occupancy Grid Algorithm   
     python gridmap_radarScene_ism.py
     
 
-## Evaluation 
+### Evaluation 
     python evaluate_radarScenes.py
 
 The slicing results are the RA slices, RV slices, and VA slices as shown in below figure.
