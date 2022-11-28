@@ -214,40 +214,40 @@ def evaluate_gridmap_mse(eva_dir, gt_dirs, map_start_index, map_resu):
 
 
 if __name__ == '__main__':
-    # eva_dir_ = 'results_poly/radarScene143_poly'
-    # gt_dir_ = ['label_gt/labels_radarscenee_2022-11-22-01-56-56.json']
-    # iou, iou_all = evaluate_poly_gt(eva_dir_, gt_dir_, is_output_all=True)
-    # print(iou)
-    # iou_smooth, iou_smooth_all = evaluate_smoothness(eva_dir_, is_output_all=True)
-    # print(iou_smooth)
-    #
-    # eva_dir_ = 'results_poly/radarScene143_ism_poly'
-    # gt_dir_ = ['label_gt/labels_radarscenee_2022-11-22-01-56-56.json']
-    # iou, iou_all = evaluate_poly_gt(eva_dir_, gt_dir_, is_output_all=True)
-    # print(iou)
-    # iou_smooth, iou_smooth_all = evaluate_smoothness(eva_dir_, is_output_all=True)
-    # print(iou_smooth)
-
-    # eva_dir_ = 'results_poly/radarScene143_poly'
-    # gt_dir_ = ['label_gt/labels_radarscenee_2022-11-22-01-56-56.json']
-    # mse = evaluate_poly_mse(eva_dir_, gt_dir_)
-    # print('mse is: ', mse)
-    #
-    # eva_dir_ = 'results_poly/radarScene143_ism_poly'
-    # gt_dir_ = ['label_gt/labels_radarscenee_2022-11-22-01-56-56.json']
-    # mse = evaluate_poly_mse(eva_dir_, gt_dir_)
-    # print('mse is: ', mse)
-
-    eva_dir_ = 'results_gridmap/radarScene143_ism_werbe'
+    eva_dir_ = 'results_poly/radarScene143_poly'
     gt_dir_ = ['label_gt/labels_radarscenee_2022-11-22-01-56-56.json']
-    map_start_index = [120, 120]
-    map_resolution = [0.3]
-    mse = evaluate_gridmap_mse(eva_dir_, gt_dir_, map_start_index, map_resolution)
-    print('mse is: ', mse)
+    iou, iou_all = evaluate_poly_gt(eva_dir_, gt_dir_, is_output_all=True)
+    print('iou_gt for single-shot polygon is: ', iou)
+    iou_smooth, iou_smooth_all = evaluate_smoothness(eva_dir_, is_output_all=True)
+    print('iou_smooth for single-shot polygon is: ', iou_smooth)
+
+    eva_dir_ = 'results_poly/radarScene143_ism_poly'
+    gt_dir_ = ['label_gt/labels_radarscenee_2022-11-22-01-56-56.json']
+    iou, iou_all = evaluate_poly_gt(eva_dir_, gt_dir_, is_output_all=True)
+    print('iou_gt for ISM-based polygon is: ', iou)
+    iou_smooth, iou_smooth_all = evaluate_smoothness(eva_dir_, is_output_all=True)
+    print('iou_smooth for ISM-based polygon is: ', iou_smooth)
+
+    eva_dir_ = 'results_poly/radarScene143_poly'
+    gt_dir_ = ['label_gt/labels_radarscenee_2022-11-22-01-56-56.json']
+    mse = evaluate_poly_mse(eva_dir_, gt_dir_)
+    print('mse for single-shot polygon is: ', mse)
+
+    eva_dir_ = 'results_poly/radarScene143_ism_poly'
+    gt_dir_ = ['label_gt/labels_radarscenee_2022-11-22-01-56-56.json']
+    mse = evaluate_poly_mse(eva_dir_, gt_dir_)
+    print('mse for ISM-based polygon is: ', mse)
+
+    # eva_dir_ = 'results_gridmap/radarScene143_ism_werbe'
+    # gt_dir_ = ['label_gt/labels_radarscenee_2022-11-22-01-56-56.json']
+    # map_start_index = [120, 120]
+    # map_resolution = [0.3]
+    # mse = evaluate_gridmap_mse(eva_dir_, gt_dir_, map_start_index, map_resolution)
+    # print('mse for grid map werbe et al. is: ', mse)
 
     eva_dir_ = 'results_gridmap/radarScene143_ism_Li'
     gt_dir_ = ['label_gt/labels_radarscenee_2022-11-22-01-56-56.json']
     map_start_index = [120, 120]
     map_resolution = [0.3]
     mse = evaluate_gridmap_mse(eva_dir_, gt_dir_, map_start_index, map_resolution)
-    print('mse is: ', mse)
+    print('mse for grid map Li et al. is: ', mse)

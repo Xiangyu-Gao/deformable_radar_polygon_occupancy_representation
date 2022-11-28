@@ -49,22 +49,46 @@ Python 3.6, and libraries in [requirements.txt](requirements.txt).
     
     python polygon_radarscene_singleFrame.py
     
+The polygon results are saved in './results_polygon/radarScene143_poly' as pickle file and their visualization is in './results_bev/radarScene143_poly'.
+
+One example for frame 36 is shown below:
+<p align="center"> <img src='docs/0036.png' align="center" height="300px"> </p> 
 
 ### Run ISM-based Radar Polygon Update Algorithm
    
     python polygon_radarscene_inverseSensor.py
     
+The polygon results are saved in './results_polygon/radarScene143_ism_poly' as pickle file and their visualization is in './results_bev/radarScene143_ism_poly'.
+
+One example for frame 36 is shown below:
+<p align="center"> <img src='docs/0036_ism.png' align="center" height="300px"> </p> 
 
 ### Run the Reference Occupancy Grid Algorithm   
     python gridmap_radarScene_ism.py
-    
+
+By default it is running for [*Li et al.*](https://www.scitepress.org/papers/2018/66673/66673.pdf). By enable *is_werbe* (i.e., set *is_werbe=True*), you are able to change the default to [*Werber et al.*](https://ieeexplore.ieee.org/abstract/document/7117922).
+
+The grid map results are saved in './results_gridmap/radarScene143_ism_Li' by default and their visualization is in './results_bev/radarScene143_ism_Li' by default.
+
+One example for frame 36 is shown below:
+<p align="center"> <img src='docs/0036_grid.png' align="center" height="300px"> </p> 
 
 ### Evaluation 
     python evaluate_radarScenes.py
 
-The slicing results are the RA slices, RV slices, and VA slices as shown in below figure.
-<p align="center"> <img src='docs/slice_viz.png' align="center" height="230px"> </p>
-
+ You will get outputs as follows:
+    ```
+    iou_gt for single-shot polygon is:  0.39592379772256886
+    iou_smooth for single-shot polygon is:  0.6115257985504882
+    iou_gt for ISM-based polygon is:  0.7586416779279769
+    iou_smooth for ISM-based polygon is:  0.8479761386842892
+    96 1442
+    mse for single-shot polygon is:  0.06657420249653259
+    32 1442
+    mse for ISM-based polygon is:  0.022191400832177532
+    46 1442
+    mse for grid map Li et al. is:  0.0319001386962552
+    ```
 ## License
 
 This project is release under MIT license (see [LICENSE](LICENSE)).

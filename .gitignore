@@ -1,2 +1,6 @@
 
 scene.pickle
+__pycache__/config.cpython-36.pyc
+__pycache__/data_loader.cpython-36.pyc
+__pycache__/polygon_radarscene_inverseSensor.cpython-36.pyc
+configs/__pycache__/radarScene_config.cpython-36.pyc
