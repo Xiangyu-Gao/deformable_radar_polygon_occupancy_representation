@@ -38,7 +38,7 @@ Python 3.6, and libraries in [requirements.txt](requirements.txt).
     ```
     https://drive.google.com/file/d/12NV46iAPfws4SVUuxyfHbsqE_BibqAyK/view?usp=sharing
     ```
-    Note that the sample data is from the scene 143 of [RadarScenes](https://radar-scenes.com/) Dataset. You can try other data by downloading the RadarScenes, and read and save other scenes of data with the [script](read_radarscene_data.py).
+    Note that the sample data is from the scene 143 of [RadarScenes Dataset](https://radar-scenes.com/). You can try other data by downloading the RadarScenes, and read and save other scenes of data with the [script](read_radarscene_data.py).
 
 2. Relocate the pickle data under the project directory.
     ```
@@ -49,7 +49,7 @@ Python 3.6, and libraries in [requirements.txt](requirements.txt).
     
     python polygon_radarscene_singleFrame.py
     
-The polygon results are saved in './results_polygon/radarScene143_poly' as pickle file and their visualization is in './results_bev/radarScene143_poly'.
+The polygon results are saved in *'./results_polygon/radarScene143_poly'* as pickle file and their visualization is in *'./results_bev/radarScene143_poly'*.
 
 One example for frame 36 is shown below:
 <p align="center"> <img src='docs/0036.png' align="center" height="300px"> </p> 
@@ -58,7 +58,7 @@ One example for frame 36 is shown below:
    
     python polygon_radarscene_inverseSensor.py
     
-The polygon results are saved in './results_polygon/radarScene143_ism_poly' as pickle file and their visualization is in './results_bev/radarScene143_ism_poly'.
+The polygon results are saved in *'./results_polygon/radarScene143_ism_poly'* as pickle file and their visualization is in *'./results_bev/radarScene143_ism_poly'*.
 
 One example for frame 36 is shown below:
 <p align="center"> <img src='docs/0036_ism.png' align="center" height="300px"> </p> 
@@ -68,7 +68,7 @@ By enable *is_withpred* (i.e., set *is_withpred=True*) in [polygon_radarscene_in
    
     python polygon_radarscene_inverseSensor.py
     
-The polygon prediction results are visualization is in './results_bev/radarScene143_ism_poly_pred' using the dotted line.
+The polygon prediction results are visualization is in *'./results_bev/radarScene143_ism_poly_pred'* using the dotted line.
 
 One example for frame 36 is shown below:
 <p align="center"> <img src='docs/0036_ism_pred.png' align="center" height="300px"> </p> 
@@ -78,7 +78,7 @@ One example for frame 36 is shown below:
 
 By default it is running for [*Li et al.*](https://www.scitepress.org/papers/2018/66673/66673.pdf). By enable *is_werbe* (i.e., set *is_werbe=True*) in [gridmap_radarScene_ism.py](gridmap_radarScene_ism.py), you are able to change the default to [*Werber et al.*](https://ieeexplore.ieee.org/abstract/document/7117922).
 
-The grid map results are saved in './results_gridmap/radarScene143_ism_Li' by default and their visualization is in './results_bev/radarScene143_ism_Li' by default.
+The grid map results are saved in *'./results_gridmap/radarScene143_ism_Li'* by default and their visualization is in *'./results_bev/radarScene143_ism_Li'* by default.
 
 One example for frame 36 is shown below:
 <p align="center"> <img src='docs/0036_grid.png' align="center" height="300px"> </p> 
