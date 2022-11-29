@@ -7,6 +7,7 @@ https://user-images.githubusercontent.com/46943965/204443263-f70d0649-6d03-42af-
 
 > [**Deformable Radar Polygon: A Lightweight and Predictable Occupancy Representation for Short-range Collision Avoidance**](https://arxiv.org/pdf/2203.01442.pdf),            
 > *Xiangyu Gao, Sihao Ding, Karl Vanäs, Harshavardhan Reddy Dasari, and Henrik Söderlund*
+
 > *arXiv technical report ([arXiv 2203.01442](https://arxiv.org/abs/2203.01442))*  
 
     @article{xiangyu2022deformable,
