@@ -2,8 +2,6 @@
 
 A Lightweight and Predictable Occupancy Representation for Short-range Collision Avoidance
 
-<p align="center"> <img src='docs/grap_abs.png' align="center" height="300px"> </p>
-
 > [**Deformable Radar Polygon: A Lightweight and Predictable Occupancy Representation for Short-range Collision Avoidance**](https://arxiv.org/pdf/2203.01442.pdf),            
 > *Xiangyu Gao, Sihao Ding, Karl Vanäs, Harshavardhan Reddy Dasari, and Henrik Söderlund*
 > *arXiv technical report ([arXiv 2203.01442](https://arxiv.org/abs/2203.01442))*  
