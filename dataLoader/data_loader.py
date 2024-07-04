@@ -1,11 +1,6 @@
-import os
 import math
 import pickle
 import numpy as np
-
-from config import loc_radar1, loc_radar2, loc_radar3, loc_radar4
-from utils.preprocess import parse_4radar_data
-from utils.coord_trans import coord_rotate
 
 
 class DataLoaderRadarScene:

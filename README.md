@@ -6,9 +6,9 @@ A Lightweight and Predictable Occupancy Representation for Short-range Collision
 
 
 > [**Deformable Radar Polygon: A Lightweight and Predictable Occupancy Representation for Short-range Collision Avoidance**](https://arxiv.org/pdf/2203.01442.pdf),            
-> *Xiangyu Gao, Sihao Ding, Karl Vanäs, Harshavardhan Reddy Dasari, and Henrik Söderlund*
+> *Xiangyu Gao, Sihao Ding, Harshavardhan Reddy Dasari*
 
-> *arXiv technical report ([arXiv 2203.01442](https://arxiv.org/abs/2203.01442))*  
+> *IEEE Sensors Journal ([arXiv 2203.01442](https://arxiv.org/abs/2203.01442))*  
 
     @article{xiangyu2022deformable,
         title={Deformable Radar Polygon: A Lightweight and Predictable Occupancy Representation for Short-range Collision Avoidance},
@@ -20,7 +20,7 @@ A Lightweight and Predictable Occupancy Representation for Short-range Collision
 ***(July 4, 2024) Code and sample data release.***
 
 ## Abstract
-Inferring the drivable area in a scene is crucial for ensuring a vehicle avoids obstacles and facilitates safe autonomous driving. In this paper, we concentrate on detecting the instantaneous free space surrounding the ego vehicle, targeting shortrange automotive applications. We introduce a novel polygonbased occupancy representation, where the interior signifies free space, and the exterior represents undrivable areas for the egovehicle. The radar polygon consists of vertices selected from point cloud measurements provided by radars, with each vertex incorporating Doppler velocity information from automotive radars. This information indicates the movement of the vertex along the radial direction. This characteristic allows for the prediction of the shape of future radar polygons, leading to its designation as a “deformable radar polygon”. We propose two approaches to leverage noisy radar measurements for producing accurate and smooth radar polygons. The first approach is a basic radar polygon formation algorithm, which independently selects polygon vertices for each frame, using SNR-based evidence for vertex fitness verification. The second approach is the radar polygon update algorithm, which employs a probabilistic and tracking-based mechanism to update the radar polygon over time, further enhancing accuracy and smoothness. To accommodate the unique radar polygon format, we also designed a collision detection method for short-range applications. Through extensive experiments and analysis on both a self-collected dataset and the open-source RadarScenes dataset, we demonstrate that our radar polygon algorithms achieve significantly higher IoU-gt and IoUsmooth values compared to other occupancy detection baselines, highlighting their accuracy and smoothness.
+Inferring the drivable area in a scene is crucial for ensuring a vehicle avoids obstacles and facilitates safe autonomous driving. In this paper, we concentrate on detecting the instantaneous free space surrounding the ego vehicle, targeting shortrange automotive applications. We introduce a novel polygonbased occupancy representation, where the interior signifies free space, and the exterior represents undrivable areas for the egovehicle. <u>*The radar polygon consists of vertices selected from point cloud measurements provided by radars, with each vertex incorporating Doppler velocity information from automotive radars.*</u> This information indicates the movement of the vertex along the radial direction. This characteristic allows for the prediction of the shape of future radar polygons, leading to its designation as a <u>“deformable radar polygon”</u>. We propose two approaches to leverage noisy radar measurements for producing accurate and smooth radar polygons. The first approach is a <u>basic radar polygon formation algorithm</u>, which independently selects polygon vertices for each frame, using SNR-based evidence for vertex fitness verification. The second approach is the radar polygon update algorithm, which employs a <u>probabilistic and tracking-based mechanism to update the radar polygon over time</u>, further enhancing accuracy and smoothness. To accommodate the unique radar polygon format, we also designed a collision detection method for short-range applications. Through extensive experiments and analysis on both a self-collected dataset and the open-source RadarScenes dataset, we demonstrate that our radar polygon algorithms achieve significantly higher IoU-gt and IoUsmooth values compared to other occupancy detection baselines, highlighting their accuracy and smoothness.
 
 ## Use Deformable Radar Polygon
 
@@ -95,17 +95,17 @@ One example for 36-th frame is shown below:
 
  You will get outputs as follows:
 
-    iou_gt for single-shot polygon is:  0.39592379772256886
-    iou_smooth for single-shot polygon is:  0.6115257985504882
+    iou_gt for single-shot polygon is:  0.23665013401606833
+    iou_smooth for single-shot polygon is:  0.6891232717900692
     conf_over_time for single-shot polygon is:  0.4402510760276303
-    iou_gt for ISM-based polygon is:  0.7586416779279769
-    iou_smooth for ISM-based polygon is:  0.8479761386842892
+    iou_gt for ISM-based polygon is:  0.7444365353468597
+    iou_smooth for ISM-based polygon is:  0.8686911700136964
     conf_over_time for single-shot polygon is:  0.8507623585611993
-    iou_gt for Meerpohl polygon is:  0.24188615213947784
-    iou_smooth for Meerpohl polygon is:  0.685130614853097
+    iou_gt for Meerpohl polygon is:  0.22913116594233784
+    iou_smooth for Meerpohl polygon is:  0.7055480795292997
     conf_over_time for Meerpohl polygon is:  0.7871844333735922
-    iou_gt for Ziegler polygon is:  0.10279257975375328
-    iou_smooth for Ziegler polygon is:  0.7549621340933498
+    iou_gt for Ziegler polygon is:  0.18980806214888435
+    iou_smooth for Ziegler polygon is:  0.7323046792766466
     conf_over_time for Ziegler polygon is:  0.26333780394030987
 
 ### Try the Collision Detection Algorithm on Polygon
