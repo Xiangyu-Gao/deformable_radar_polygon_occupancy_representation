@@ -1,10 +1,9 @@
-import os
 import math
 import time
 import numpy as np
 
 from polygon.radar_polygon import RadarPolygon
-from data_loader import DataLoaderRadarScene
+from dataLoader.data_loader import DataLoaderRadarScene
 from utils.visualize import visualize_polygon_radarScene
 from utils.save_result import save_results_radarScene
 from config import polygon_configs, snr_elevation

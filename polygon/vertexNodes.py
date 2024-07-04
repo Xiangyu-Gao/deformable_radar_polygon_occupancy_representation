@@ -1,4 +1,3 @@
-import numpy as np
 from polygon.radar_polygon_ISM import update_polygon_loc_radarScene
 
 

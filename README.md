@@ -2,7 +2,7 @@
 
 A Lightweight and Predictable Occupancy Representation for Short-range Collision Avoidance
 
-https://user-images.githubusercontent.com/46943965/204443263-f70d0649-6d03-42af-a2d0-aac891ec5b6f.mp4
+<p align="center"> <img src='docs/abstract.png' align="center" height="200px"> </p> 
 
 
 > [**Deformable Radar Polygon: A Lightweight and Predictable Occupancy Representation for Short-range Collision Avoidance**](https://arxiv.org/pdf/2203.01442.pdf),            
@@ -12,94 +12,104 @@ https://user-images.githubusercontent.com/46943965/204443263-f70d0649-6d03-42af-
 
     @article{xiangyu2022deformable,
         title={Deformable Radar Polygon: A Lightweight and Predictable Occupancy Representation for Short-range Collision Avoidance},
-        author={Xiangyu, Gao and Sihao, Ding and Karl, Vanas and Reddy, Dasari Harshavardhan and Henrik, Soderlund},
+        author={Xiangyu, Gao and Sihao, Ding and Reddy, Dasari Harshavardhan},
         journal={arXiv preprint arXiv:2203.01442},
         year={2022}}
 
 ## Update
-***(Nov. 27, 2022) Code and sample data release.***
-
-## Contact
-Any questions or suggestions are welcome! 
-
-Xiangyu Gao [xygao@uw.edu](mailto:xygao@uw.edu) 
+***(July 4, 2024) Code and sample data release.***
 
 ## Abstract
-Inferring the drivable area in a scene is a key capability for ensuring the vehicle avoids obstacles and enabling safe autonomous driving. However, a traditional occupancy grid map suffers from high memory consumption when forming a fine-resolution grid for a large map. In this paper, we propose a lightweight, accurate, and predictable occupancy representation for automotive radars working for short-range applications that take interest in instantaneous free space surrounding the sensor. This new occupancy format is a polygon composed of a bunch of vertices selected from noisy radar measurements, which covers free space inside and gives a Doppler moving velocity for each vertex. It not only takes a very small memory and computing resources for storage and updating at every timeslot but also has the predictable shape-change property based on vertex's Doppler velocity. We name this kind of occupancy representation *"deformable radar polygon"*. Two formation algorithms for radar polygon are introduced for both single timeslot and continuous inverse sensor model update. To fit this new polygon representation, a matrix-form collision detection method has been modeled as well. The radar polygon algorithms and collision detection model have been validated via extensive experiments with real collected data and simulations, showing that the deformable radar polygon is very competitive in terms of its completeness, smoothness, accuracy, lightweight as well as the shape-predictable property. 
+Inferring the drivable area in a scene is crucial for ensuring a vehicle avoids obstacles and facilitates safe autonomous driving. In this paper, we concentrate on detecting the instantaneous free space surrounding the ego vehicle, targeting shortrange automotive applications. We introduce a novel polygonbased occupancy representation, where the interior signifies free space, and the exterior represents undrivable areas for the egovehicle. The radar polygon consists of vertices selected from point cloud measurements provided by radars, with each vertex incorporating Doppler velocity information from automotive radars. This information indicates the movement of the vertex along the radial direction. This characteristic allows for the prediction of the shape of future radar polygons, leading to its designation as a “deformable radar polygon”. We propose two approaches to leverage noisy radar measurements for producing accurate and smooth radar polygons. The first approach is a basic radar polygon formation algorithm, which independently selects polygon vertices for each frame, using SNR-based evidence for vertex fitness verification. The second approach is the radar polygon update algorithm, which employs a probabilistic and tracking-based mechanism to update the radar polygon over time, further enhancing accuracy and smoothness. To accommodate the unique radar polygon format, we also designed a collision detection method for short-range applications. Through extensive experiments and analysis on both a self-collected dataset and the open-source RadarScenes dataset, we demonstrate that our radar polygon algorithms achieve significantly higher IoU-gt and IoUsmooth values compared to other occupancy detection baselines, highlighting their accuracy and smoothness.
 
 ## Use Deformable Radar Polygon
 
-All radar configurations and algorithm configurations are included in [config](config.py).
+All radar configurations and algorithm configurations are included in [`config.py`](config.py).
 
 ### Software Requirement and Installation
 
-Python 3.6, and libraries in [requirements.txt](requirements.txt).
+Python 3.6, and libraries in [`requirements.txt`](requirements.txt).
 
 ### Download Sample Data
 1. From below Google Drive link download the sample data 'scene.pickle'. 
     ```
     https://drive.google.com/file/d/12NV46iAPfws4SVUuxyfHbsqE_BibqAyK/view?usp=sharing
     ```
-    Note that the sample data is from the scene 143 of [RadarScenes Dataset](https://radar-scenes.com/). You can try other data by downloading the RadarScenes, and read and save other scenes of data with the [script](read_radarscene_data.py).
+    Note that the sample data is from the scene 143 of [RadarScenes Dataset](https://radar-scenes.com/). You can try other data by downloading the RadarScenes, and read and save other scenes of data with the [`read_radarscene_data.py`](read_radarscene_data.py).
 
 2. Relocate the pickle data under the project directory.
     ```
     ./deformable_radar_polygon_occupancy_representation/scene.pickle
     ```
 
-### Run Single-shot Radar Polygon Formation Algorithm
+### Run Basic Radar Polygon Formation Algorithm
     
     python polygon_radarscene_singleFrame.py
     
-The polygon results are saved in *'./results_polygon/radarScene143_poly'* as pickle file and their visualization is in *'./results_bev/radarScene143_poly'*.
+The polygon results are saved in `./res/results_polygon/radarScene143_poly` as pickle file and their visualization is in `./res/results_bev/radarScene143_poly`.
 
-One example for frame 36 is shown below:
+One example for 36-th frame is shown below:
 <p align="center"> <img src='docs/0036.png' align="center" height="300px"> </p> 
 
-### Run ISM-based Radar Polygon Update Algorithm
+### Run Probabilistic and Tracking-Based Radar Polygon Update Algorithm
    
     python polygon_radarscene_inverseSensor.py
     
-The polygon results are saved in *'./results_polygon/radarScene143_ism_poly'* as pickle file and their visualization is in *'./results_bev/radarScene143_ism_poly'*.
+The polygon results are saved in `./res/results_polygon/radarScene143_ism_poly` as pickle file and their visualization is in `./res/results_bev/radarScene143_ism_poly`.
 
-One example for frame 36 is shown below:
+One example for 36-th frame is shown below:
 <p align="center"> <img src='docs/0036_ism.png' align="center" height="300px"> </p> 
 
-### Try Radar Polygon Prediction During the ISM Update
-By enable *is_withpred* (i.e., set *is_withpred=True*) in [polygon_radarscene_inverseSensor.py](polygon_radarscene_inverseSensor.py), then run it as below
+### Try Radar Polygon Prediction During the Radar Update
+By enable `is_withpred` argument (i.e., set `is_withpred=True`) in [`polygon_radarscene_inverseSensor.py`](polygon_radarscene_inverseSensor.py), then run it as below
    
     python polygon_radarscene_inverseSensor.py
     
-The polygon prediction results are visualization is in *'./results_bev/radarScene143_ism_poly_pred'* using the dotted line.
+The polygon prediction results are visualization is in `./res/results_bev/radarScene143_ism_poly_pred` using the dotted line.
 
-One example for frame 36 is shown below:
+One example for 36-th frame is shown below:
 <p align="center"> <img src='docs/0036_ism_pred.png' align="center" height="300px"> </p> 
 
-### Run the Reference Occupancy Grid Algorithm   
-    python gridmap_radarScene_ism.py
+### Run the Meerpohl Polygon Algorithm   
+    python meerpohl_polygon_radarscene.py
 
-By default it is running for [*Li et al.*](https://www.scitepress.org/papers/2018/66673/66673.pdf). By enable *is_werbe* (i.e., set *is_werbe=True*) in [gridmap_radarScene_ism.py](gridmap_radarScene_ism.py), you are able to change the default to [*Werber et al.*](https://ieeexplore.ieee.org/abstract/document/7117922).
+By default it is running with the algorithm in [*"Free-space Polygon Creation based on Occupancy Grid Maps for Trajectory Optimization Methods"*](https://www.sciencedirect.com/science/article/pii/S2405896319304410).
 
-The grid map results are saved in *'./results_gridmap/radarScene143_ism_Li'* by default and their visualization is in *'./results_bev/radarScene143_ism_Li'* by default.
+The polygon results are saved in './res/results_poly/radarScene143_meerpohl'* by default and their visualization is in `./res/results_bev/radarScene143_meerpohl` by default.
 
-One example for frame 36 is shown below:
-<p align="center"> <img src='docs/0036_grid.png' align="center" height="300px"> </p> 
+One example for 36-th frame is shown below:
+<p align="center"> <img src='docs/0036_meer.png' align="center" height="300px"> </p> 
+
+### Run the Ziegler Polygon Algorithm   
+    python ziegler_polygon_radarscene.py
+
+By default it is running with the algorithm in [*"Trajectory planning for Bertha — A local, continuous method"*](https://ieeexplore.ieee.org/document/6856581).
+
+The polygon results are saved in `./res/results_poly/radarScene143_ziegler` by default and their visualization is in `./res/results_bev/radarScene143_ziegler` by default.
+
+One example for 36-th frame is shown below:
+<p align="center"> <img src='docs/0036_zie.png' align="center" height="300px"> </p> 
 
 ### Evaluation 
     python evaluate_radarScenes.py
 
  You will get outputs as follows:
-    
+
     iou_gt for single-shot polygon is:  0.39592379772256886
     iou_smooth for single-shot polygon is:  0.6115257985504882
+    conf_over_time for single-shot polygon is:  0.4402510760276303
     iou_gt for ISM-based polygon is:  0.7586416779279769
     iou_smooth for ISM-based polygon is:  0.8479761386842892
-    96 1442
-    mse for single-shot polygon is:  0.06657420249653259
-    32 1442
-    mse for ISM-based polygon is:  0.022191400832177532
-    46 1442
-    mse for grid map Li et al. is:  0.0319001386962552
+    conf_over_time for single-shot polygon is:  0.8507623585611993
+    iou_gt for Meerpohl polygon is:  0.24188615213947784
+    iou_smooth for Meerpohl polygon is:  0.685130614853097
+    conf_over_time for Meerpohl polygon is:  0.7871844333735922
+    iou_gt for Ziegler polygon is:  0.10279257975375328
+    iou_smooth for Ziegler polygon is:  0.7549621340933498
+    conf_over_time for Ziegler polygon is:  0.26333780394030987
+
+### Try the Collision Detection Algorithm on Polygon
+    python collison_detect_test.py
 
 ## License
 
