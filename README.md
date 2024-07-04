@@ -1,6 +1,6 @@
-# Deformable Radar Polygon
+# Deformable Radar Polygon Occupancy Representation for Short-range Collision Avoidance
 
-A Lightweight and Predictable Occupancy Representation for Short-range Collision Avoidance
+A Lightweight and Predictable Occupancy Representation for Short-range applications
 
 <p align="center"> <img src='docs/abstract.png' align="center" height="200px"> </p> 
 
